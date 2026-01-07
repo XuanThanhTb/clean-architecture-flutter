@@ -53,6 +53,9 @@ dependencies:
   
   # Routing
   go_router: ^14.0.0
+  
+  # Responsive & Layout
+  responsive_framework: ^1.1.1
 
 dev_dependencies:
   flutter_test:

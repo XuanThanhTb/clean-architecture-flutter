@@ -11,6 +11,7 @@ import '../../domain/usecases/get_current_user_usecase.dart';
 import '../../domain/usecases/login_usecase.dart';
 import '../../domain/usecases/logout_usecase.dart';
 import '../../presentation/bloc/login/login_cubit.dart';
+import '../../presentation/bloc/theme/theme_cubit.dart';
 import '../network/api_client.dart';
 
 final sl = GetIt.instance;
@@ -51,6 +52,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => LogoutUseCase(sl()));
 
   // Cubit
+  sl.registerLazySingleton(() => ThemeCubit(
+        sharedPreferences: sl(),
+      ));
   sl.registerFactory(() => LoginCubit(
         loginUseCase: sl(),
         authRepository: sl(),
